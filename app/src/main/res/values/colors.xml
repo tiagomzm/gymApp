@@ -2,4 +2,7 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="inicio">#23A41F</color>
+    <color name="registro">#6A1AD6</color>
+    <color name="usu">#5DADE2</color>
 </resources>

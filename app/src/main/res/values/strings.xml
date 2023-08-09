@@ -52,4 +52,10 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="eslogan">Inicia, crea y manen tu futuro</string>
+    <string name="usuario">Usuario</string>
+    <string name="contrasena">Contraseña</string>
+    <string name="bvn">Bienvenid@s</string>
+    <string name="registrar">Registrarse</string>
+
 </resources>
