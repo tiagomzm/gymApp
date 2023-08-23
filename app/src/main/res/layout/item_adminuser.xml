@@ -14,7 +14,7 @@
         android:layout_marginTop="37dp"
         android:layout_marginEnd="335dp"
         android:layout_marginBottom="675dp"
-        android:text="Nombre"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +28,7 @@
         android:layout_marginTop="37dp"
         android:layout_marginEnd="251dp"
         android:layout_marginBottom="675dp"
-        android:text="Documento"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView"
@@ -42,7 +42,7 @@
         android:layout_marginTop="37dp"
         android:layout_marginEnd="191dp"
         android:layout_marginBottom="675dp"
-        android:text="Plan"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView2"
@@ -56,7 +56,7 @@
         android:layout_marginTop="35dp"
         android:layout_marginEnd="125dp"
         android:layout_marginBottom="677dp"
-        android:text="Pago"
+
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView9"
