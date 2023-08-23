@@ -1,17 +1,17 @@
 package com.tiago_mzm.gymapp.activities.main
 
-import com.tiago_mzm.gymapp.data.admin
+import com.tiago_mzm.gymapp.data.AdminUser
 
 class adminProvider {
     companion object{
-        val listaUsuarioPrueba = listOf<admin>(
-            admin("Camila","Alzate","Mensualidad"),
-            admin("Felipe","Ciro","Anual"),
-            admin("Santiago","Agudelo","Mensualidad"),
-            admin("Santiago","Castañeda","Mensualidad"),
-            admin("Alejandra","Ramirez","Anual"),
-            admin("Leidy","Echavarria","Semestral"),
-            admin("Vanessa","Cano","trimestral"),
+        val listaUsuarioPrueba = listOf<AdminUser>(
+            AdminUser("Camila","Alzate","Mensualidad","1"),
+            AdminUser("Felipe","Ciro","Anual","2"),
+            AdminUser("Santiago","Agudelo","Mensualidad","3"),
+            AdminUser("Santiago","Castañeda","Mensualidad","4"),
+            AdminUser("Alejandra","Ramirez","Anual","5"),
+            AdminUser("Leidy","Echavarria","Semestral","6"),
+            AdminUser("Vanessa","Cano","trimestral","7"),
         )
     }
 }
