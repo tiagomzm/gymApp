@@ -17,24 +17,6 @@
     tools:layout_editor_absoluteX="0dp"
     tools:layout_editor_absoluteY="0dp">
 
-    <Button
-        android:id="@+id/login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="start"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="22dp"
-        android:layout_marginEnd="140dp"
-        android:layout_marginBottom="64dp"
-        android:enabled="false"
-        android:text="Ingresar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9"
-        app:rippleColor="#272323"
-        android:onClick="abrirAplicacion"/>
-
     <ImageView
         android:id="@+id/imageView5"
         android:layout_width="316dp"
@@ -65,20 +47,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="135dp"
-        android:layout_marginTop="2dp"
+        android:layout_marginTop="3dp"
         android:layout_marginEnd="135dp"
+        android:layout_marginBottom="34dp"
         android:background="#D3FFFFFF"
         android:backgroundTint="#B01AE823"
         android:fontFamily="sans-serif"
         android:forceHasOverlappingRendering="true"
         android:foregroundTint="#331414"
+        android:onClick="abrirRegistro"
         android:text="Registrarse"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login"
-        app:rippleColor="#00C1B4B4"
-        android:onClick="abrirAplicacion"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/ingresar"
+        app:rippleColor="#00C1B4B4" />
 
     <TextView
         android:id="@+id/textView17"
@@ -130,5 +113,20 @@
             tools:layout_editor_absoluteX="33dp"
             tools:layout_editor_absoluteY="584dp" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/ingresar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="145dp"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="abrirAplicacion"
+        android:text="INGRESAR"
+        app:layout_constraintBottom_toTopOf="@+id/btRegistro"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

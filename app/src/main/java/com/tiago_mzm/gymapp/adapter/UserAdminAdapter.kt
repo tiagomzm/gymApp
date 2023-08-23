@@ -12,9 +12,8 @@ class UserAdminAdapter(private val userList:List<AdminUser>) : RecyclerView.Adap
         return UserAdminViewHolder(layoutInflater.inflate(R.layout.item_adminuser, parent, false))
     }
 
-    override fun getItemCount(): Int {
-        return userList.size
-    }
+    override fun getItemCount(): Int = userList.size
+
 
     override fun onBindViewHolder(holder: UserAdminViewHolder, position: Int) {
         val item = userList[position]
