@@ -187,14 +187,33 @@
 
     <Button
         android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_width="153dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="190dp"
         android:layout_marginTop="6dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="90dp"
+        android:layout_marginBottom="17dp"
         android:text="REGISTRARME"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+        android:id="@+id/atras"
+        android:layout_width="105dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="56dp"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="29dp"
+        android:layout_marginBottom="17dp"
+        android:text="ATRAS"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/button"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
+        android:onClick="regresarLogin"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
