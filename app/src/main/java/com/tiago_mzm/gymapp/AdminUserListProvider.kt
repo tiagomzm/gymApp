@@ -4,7 +4,7 @@ import com.tiago_mzm.gymapp.data.AdminUser
 
 class AdminUserListProvider {
     companion object{
-        val userList = listOf<AdminUser>( AdminUser("Nombre1","11","y","10000"),
+        val userList = listOf<AdminUser>( AdminUser("Nombre1","11","y","20000"),
             AdminUser("Nombre2","12","m",""),
             AdminUser("Nombre3","13","n",""),
             AdminUser("Nombre4","14","s",""),
