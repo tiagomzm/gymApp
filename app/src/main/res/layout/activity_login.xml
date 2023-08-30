@@ -46,10 +46,9 @@
         android:id="@+id/btRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="135dp"
+        android:layout_marginStart="160dp"
         android:layout_marginTop="3dp"
-        android:layout_marginEnd="135dp"
-        android:layout_marginBottom="34dp"
+        android:layout_marginEnd="160dp"
         android:background="#D3FFFFFF"
         android:backgroundTint="#B01AE823"
         android:fontFamily="sans-serif"
@@ -78,13 +77,14 @@
         />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout8"
+        android:id="@+id/usuario"
         android:layout_width="250dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_marginStart="60dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="60dp"
         android:backgroundTint="#D5000000"
+        android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11">
@@ -95,38 +95,35 @@
             android:hint="usuario" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="50dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="contraseña"
-            tools:layout_editor_absoluteX="33dp"
-            tools:layout_editor_absoluteY="584dp" />
-    </com.google.android.material.textfield.TextInputLayout>
-
     <Button
         android:id="@+id/ingresar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="145dp"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="160dp"
+        android:layout_marginEnd="145dp"
         android:layout_marginBottom="4dp"
         android:onClick="abrirAplicacion"
         android:text="INGRESAR"
         app:layout_constraintBottom_toTopOf="@+id/btRegistro"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.6"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout9" />
+        app:layout_constraintTop_toBottomOf="@+id/contraseña" />
+
+    <EditText
+        android:id="@+id/contraseña"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="60dp"
+        android:layout_marginBottom="50dp"
+        android:ems="10"
+        android:hint="Contraseña"
+        android:inputType="textPassword"
+        app:layout_constraintBottom_toTopOf="@+id/ingresar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/usuario" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
