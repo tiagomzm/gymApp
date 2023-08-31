@@ -16,7 +16,6 @@
         android:layout_marginEnd="159dp"
         android:layout_marginBottom="52dp"
         android:background="#569ED6"
-        app:layout_constraintBottom_toTopOf="@+id/textView6"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.36"
         app:layout_constraintStart_toStartOf="parent"

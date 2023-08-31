@@ -7,6 +7,8 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 import com.tiago_mzm.gymapp.databinding.ActivityLoginBinding
 import com.tiago_mzm.gymapp.model.Usuario
 import com.tiago_mzm.gymapp.ui.login.LoginViewModel
@@ -23,23 +25,30 @@ class   LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        listaUsuarios.add(Usuario("usuario1", "contraseña1"))
-        listaUsuarios.add(Usuario("usuario2", "contraseña2"))
+        listaUsuarios.add(Usuario("admin", "admin123","ADMIN"))
+        listaUsuarios.add(Usuario("user", "user123","USUARIO"))
 
         // Obtén referencias a las vistas.
-        val editTextUsuario = findViewById<EditText>(R.id.usuario)
+        val editTextUsuario = findViewById<TextInputLayout>(R.id.usuario)
         val editTextContraseña = findViewById<EditText>(R.id.contraseña)
         val buttonIngresar = findViewById<Button>(R.id.ingresar)
 
         // Define el evento click del botón "Ingresar".
         buttonIngresar.setOnClickListener(View.OnClickListener {
-            val nombreUsuario = editTextUsuario.text.toString()
+            val nombreUsuario = editTextUsuario.editText?.text.toString()
             val contraseña = editTextContraseña.text.toString()
+            var rol = 0
 
             var loginExitoso = false
 
             for (usuario in listaUsuarios) {
                 if (usuario.nombreUsuario == nombreUsuario && usuario.contraseña == contraseña) {
+                    if(usuario.rol == "ADMIN"){
+                        rol = 1
+                    }else{
+                        rol = 2
+                    }
+
                     // Las credenciales son correctas.
                     loginExitoso = true
                     break
@@ -47,6 +56,16 @@ class   LoginActivity : AppCompatActivity() {
             }
 
             if (loginExitoso) {
+                for (usuario in listaUsuarios){
+                    if(rol == 1){
+                        val intent= Intent(this,admin::class.java).apply {  }
+                        startActivity(intent)
+                    }else if (rol == 2){
+                        val intent= Intent(this,viewPay::class.java).apply {  }
+                        startActivity(intent)
+                    }
+                }
+
                 // Inicio de sesión exitoso, realiza la acción deseada (por ejemplo, abre la siguiente actividad).
                 Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT)
                     .show()
@@ -56,7 +75,7 @@ class   LoginActivity : AppCompatActivity() {
                     .show()
             }
         })
-
+    
     }
     fun abrirRegistro(view: View){
         val intent= Intent(this,registration::class.java).apply {  }
