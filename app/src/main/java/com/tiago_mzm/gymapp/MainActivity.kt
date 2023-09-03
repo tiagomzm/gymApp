@@ -7,14 +7,12 @@ import androidx.navigation.ui.AppBarConfiguration
 import android.view.View
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.tiago_mzm.gymapp.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
 
 
     private lateinit var appBarConfiguration: AppBarConfiguration
-    private lateinit var binding: ActivityMainBinding
 
 
 

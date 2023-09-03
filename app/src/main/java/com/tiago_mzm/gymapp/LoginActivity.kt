@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 import com.tiago_mzm.gymapp.databinding.ActivityLoginBinding
 import com.tiago_mzm.gymapp.model.Usuario
@@ -58,16 +57,16 @@ class   LoginActivity : AppCompatActivity() {
             if (loginExitoso) {
                 for (usuario in listaUsuarios){
                     if(rol == 1){
-                        val intent= Intent(this,admin::class.java).apply {  }
+                        val intent= Intent(this,admin::class.java).apply { putExtra("usuario",nombreUsuario)  }
                         startActivity(intent)
                     }else if (rol == 2){
-                        val intent= Intent(this,viewPay::class.java).apply {  }
+                        val intent= Intent(this,viewUser::class.java).apply { putExtra("usuario",nombreUsuario) }
                         startActivity(intent)
                     }
                 }
 
                 // Inicio de sesión exitoso, realiza la acción deseada (por ejemplo, abre la siguiente actividad).
-                Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso", Toast.LENGTH_SHORT)
+                Toast.makeText(this@LoginActivity, "Inicio de sesión exitoso"+ nombreUsuario, Toast.LENGTH_SHORT)
                     .show()
             } else {
                 // Mostrar un mensaje de error o realizar otra acción apropiada.

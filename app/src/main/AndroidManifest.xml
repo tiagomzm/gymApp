@@ -16,7 +16,7 @@
             android:name=".admin"
             android:exported="false" />
         <activity
-            android:name=".viewPay"
+            android:name=".viewUser"
             android:exported="false" />
         <activity
             android:name=".registration"

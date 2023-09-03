@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#49D4E6"
-    tools:context=".viewPay"
+    tools:context=".viewUser"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="34dp">
 
@@ -92,13 +92,13 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="138dp"
         android:layout_marginEnd="160dp"
-        android:layout_marginBottom="108dp"
+        android:layout_marginBottom="156dp"
         android:text="PAGAR"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <CheckBox
@@ -135,7 +135,7 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="112dp"
-        android:text="TextView"
+
         app:layout_constraintBottom_toTopOf="@+id/actualizarDatos"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintHorizontal_bias="0.0"
@@ -148,7 +148,6 @@
         android:layout_marginStart="50dp"
         android:layout_marginEnd="23dp"
         android:layout_marginBottom="80dp"
-        android:text="TextView"
         app:layout_constraintBottom_toTopOf="@+id/actualizarDatos"
         app:layout_constraintEnd_toStartOf="@+id/imageView6"
         app:layout_constraintHorizontal_bias="0.0"
@@ -161,25 +160,33 @@
         android:layout_marginStart="129dp"
         android:layout_marginTop="27dp"
         android:layout_marginEnd="130dp"
-        android:layout_marginBottom="12dp"
         android:text="Actualizar datos"
-        app:layout_constraintBottom_toTopOf="@+id/Pagar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <Button
-        android:id="@+id/Pagar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="158dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="165dp"
-        android:layout_marginBottom="28dp"
-        android:text="Pagar"
-        app:layout_constraintBottom_toTopOf="@+id/textView8"
+        android:id="@+id/button3"
+        android:layout_width="108dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="143dp"
+        android:layout_marginTop="35dp"
+        android:layout_marginEnd="160dp"
+        android:layout_marginBottom="67dp"
+        android:text="Salir"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/actualizarDatos" />
+        app:layout_constraintTop_toBottomOf="@+id/button"
+        android:onClick="salirVistaUsuario"
+        />
+
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragmentContainerView"
+        android:name="com.tiago_mzm.gymapp.FragmentPago"
+        android:layout_width="300dp"
+        android:layout_height="327dp"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="259dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
