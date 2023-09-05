@@ -94,10 +94,10 @@
         android:layout_marginEnd="1dp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.703"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.189" />
 
     <Button
         android:id="@+id/SALIR"
@@ -113,4 +113,20 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reciclerview_usuarios"
         android:onClick="salirVista"/>
+
+    <EditText
+        android:id="@+id/editTextText7"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginTop="18dp"
+        android:layout_marginEnd="31dp"
+        android:layout_marginBottom="21dp"
+        android:ems="10"
+        android:inputType="text"
+        android:text="buscar"
+        app:layout_constraintBottom_toTopOf="@+id/reciclerview_usuarios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/textView12"
+        app:layout_constraintTop_toBottomOf="@+id/textView16" />
 </androidx.constraintlayout.widget.ConstraintLayout>
