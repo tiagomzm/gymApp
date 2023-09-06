@@ -5,6 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#00FEBC"
+    android:windowSoftInputMode="adjustResize"
+    android:backgroundTintMode="multiply"
+    android:foregroundTintMode="multiply"
     tools:context=".admin">
 
     <ImageView
@@ -12,9 +15,8 @@
         android:layout_width="140dp"
         android:layout_height="104dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="24dp"
         android:layout_marginEnd="106dp"
-        android:layout_marginBottom="100dp"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -23,81 +25,31 @@
         app:srcCompat="@mipmap/logo_foreground" />
 
     <TextView
-        android:id="@+id/textView12"
-        android:layout_width="91dp"
-        android:layout_height="19dp"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="554dp"
-        android:text="Doc / Nombre:"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <TextView
         android:id="@+id/textView13"
         android:layout_width="198dp"
         android:layout_height="23dp"
         android:layout_marginStart="106dp"
-        android:layout_marginTop="489dp"
         android:layout_marginEnd="107dp"
         android:layout_marginBottom="41dp"
         android:text="Inicia, crea y manten tu futuro"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12" />
-
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="131dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="140dp"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="684dp"
-
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="86dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="138dp"
-        android:layout_marginTop="17dp"
-        android:layout_marginEnd="35dp"
-        android:layout_marginBottom="565dp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/textView13"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toEndOf="@+id/imageView4"
-        app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/reciclerview_usuarios"
         android:layout_width="382dp"
         android:layout_height="304dp"
         android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="1dp"
+        android:layout_marginBottom="112dp"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.703"
+        app:layout_constraintHorizontal_bias="0.481"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextText7" />
 
     <Button
         android:id="@+id/SALIR"
@@ -107,26 +59,30 @@
         android:layout_marginTop="127dp"
         android:layout_marginEnd="163dp"
         android:layout_marginBottom="9dp"
+        android:onClick="salirVista"
         android:text="SALIR"
         app:layout_constraintBottom_toTopOf="@+id/textView13"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/reciclerview_usuarios"
-        android:onClick="salirVista"/>
+        app:layout_constraintVertical_bias="1.0" />
 
     <EditText
         android:id="@+id/editTextText7"
         android:layout_width="0dp"
         android:layout_height="50dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="31dp"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="181dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="21dp"
         android:ems="10"
         android:inputType="text"
-        android:text="buscar"
+        android:maxLines="1"
+        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@+id/reciclerview_usuarios"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/textView16" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Buscar" />
 </androidx.constraintlayout.widget.ConstraintLayout>
