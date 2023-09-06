@@ -12,12 +12,14 @@ import androidx.core.widget.addTextChangedListener
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.tiago_mzm.gymapp.adapter.UserAdminAdapter
+import com.tiago_mzm.gymapp.data.AdminUser
 import com.tiago_mzm.gymapp.databinding.ActivityAdminBinding
 
 
 class admin : AppCompatActivity() {
     private lateinit var binding: ActivityAdminBinding
-    private lateinit var adapter:UserAdminAdapter
+    private lateinit var adapter: UserAdminAdapter
+    private var listaUsuariosTratados: MutableList<AdminUser> = AdminUserListProvider.userList.toMutableList()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -39,6 +41,8 @@ class admin : AppCompatActivity() {
                     usuario -> usuario.nombre.lowercase().contains(usuarioFilrado.toString().lowercase()) }
             adapter.listtaActualizada(usauriosFiltrados)
         }
+
+
     }
 
     fun salirVista(view: View){
@@ -47,9 +51,14 @@ class admin : AppCompatActivity() {
     }
 
     private  fun initRecyclerView(){
-        val recyclerView = findViewById<RecyclerView>(R.id.reciclerview_usuarios)
-        recyclerView.layoutManager = LinearLayoutManager(this)
-        recyclerView.adapter = UserAdminAdapter(AdminUserListProvider.userList)
-
+        adapter = UserAdminAdapter(
+            userList = listaUsuariosTratados,
+            clicBotonPagar = {pagar -> pagarBoton(pagar)}
+        )
+        binding.reciclerviewUsuarios.layoutManager = LinearLayoutManager(this)
+        binding.reciclerviewUsuarios.adapter = adapter
+    }
+    private fun pagarBoton (pago: AdminUser){
+        Toast.makeText(this, pago.nombre, Toast.LENGTH_SHORT).show()
     }
 }

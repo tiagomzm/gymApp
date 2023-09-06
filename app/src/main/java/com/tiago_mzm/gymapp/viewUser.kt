@@ -16,7 +16,6 @@ class viewUser : AppCompatActivity() {
         val textoUsuario = findViewById<TextView>(R.id.textView18)
         textoUsuario.text = usuario
 
-
     }
 
     fun salirVistaUsuario(view: View){
