@@ -6,7 +6,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.tiago_mzm.gymapp.data.AdminUser
 import com.tiago_mzm.gymapp.R
 
-class UserAdminAdapter(private val userList:List<AdminUser>) : RecyclerView.Adapter<UserAdminViewHolder>() {
+class UserAdminAdapter(private var userList:List<AdminUser>,
+                       private val clicBotonPagar: (AdminUser) -> Unit )
+    : RecyclerView.Adapter<UserAdminViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserAdminViewHolder {
         val layoutInflater = LayoutInflater.from(parent.context)
         return UserAdminViewHolder(layoutInflater.inflate(R.layout.item_adminuser, parent, false))
@@ -17,8 +19,12 @@ class UserAdminAdapter(private val userList:List<AdminUser>) : RecyclerView.Adap
 
     override fun onBindViewHolder(holder: UserAdminViewHolder, position: Int) {
         val item = userList[position]
-        holder.render(item)
+        holder.render(item, clicBotonPagar)
 
+    }
+    fun listtaActualizada(userList: List<AdminUser>){
+        this.userList = userList
+        notifyDataSetChanged()
     }
 
 }
