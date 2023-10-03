@@ -4,11 +4,13 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.tiago_mzm.gymapp.data.database.dao.UserDAO
 import com.tiago_mzm.gymapp.data.database.entities.User
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    companion object {
+    abstract fun daoUsuario() : UserDAO
+   /* companion object {
         private const val DATABASE_NAME = "pmovil.db"
 
         private lateinit var instance: AppDatabase
@@ -31,5 +33,5 @@ abstract class AppDatabase : RoomDatabase() {
         }
 
 
-    }
+    }*/
 }

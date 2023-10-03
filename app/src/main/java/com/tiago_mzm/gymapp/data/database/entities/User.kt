@@ -6,9 +6,12 @@ import androidx.room.PrimaryKey
 
 @Entity
 data class  User (
-    @PrimaryKey val code: Int,
+    @PrimaryKey val id: Int,
     @ColumnInfo var name: String,
-    @ColumnInfo var description: String,
-    @ColumnInfo var quantity: Int,
-    @ColumnInfo var price: Double
+    @ColumnInfo var tipo_doc: String,
+    @ColumnInfo var documento: String,
+    @ColumnInfo var celular: String,
+    @ColumnInfo var correo: String,
+    @ColumnInfo var password: String,
+    @ColumnInfo var rol: String
 )

@@ -7,22 +7,30 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.Toast
+import androidx.lifecycle.lifecycleScope
+import androidx.room.Room
+import com.tiago_mzm.gymapp.data.database.AdaptadorUser
+import com.tiago_mzm.gymapp.data.database.AppDatabase
+import com.tiago_mzm.gymapp.data.database.entities.User
+import com.tiago_mzm.gymapp.databinding.ActivityRegistrationBinding
+import kotlinx.coroutines.launch
 
 class registration : AppCompatActivity() {
 
+    lateinit var binding: ActivityRegistrationBinding
 
-    var tnombre: EditText?=null
-    var ttipo:EditText?=null
-    var tdocumento:EditText?=null
-    var tcelular:EditText?=null
-    var tcorreo:EditText?=null
-    var tcontrasena:EditText?=null
-    var tid="1"
-    var trol="admin"
+    var listaUser: MutableList<User> = mutableListOf()
 
+    lateinit var  adatador : AdaptadorUser
+    lateinit var room: AppDatabase
+    lateinit var  usuario: User
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
+        binding = ActivityRegistrationBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        room = Room.databaseBuilder(this,AppDatabase::class.java,"vibras").build()
     }
 
     fun regresarLogin(view: View){
@@ -30,39 +38,25 @@ class registration : AppCompatActivity() {
         startActivity(intent)
     }
 
-    fun  instarUsuario(view: View){
-        var conexion = SQLite(this,"pmovil",null,1)
-        var baseDatos = conexion.writableDatabase
-        var id = tid;
-        var rol= trol;
-        var nombre = tnombre?.text.toString()
-        var tipo = ttipo?.text.toString()
-        var documento = tdocumento?.text.toString()
-        var celular = tcelular?.text.toString()
-        var correo = tcorreo?.text.toString()
-        var contrasena = tcontrasena?.text.toString()
+    fun obtenerUsuarios(room:AppDatabase){
+        lifecycleScope.launch {
+            listaUser = room.daoUsuario().obtenerUsuarios()
+           // adatador = AdaptadorUser(listaUser,this@registration)
 
-        if(nombre.isEmpty()==false && tipo.isEmpty() ==false && documento.isEmpty()==false &&celular.isEmpty()==false && correo.isEmpty()==false && contrasena.isEmpty()==false){
-            var  registro = ContentValues()
-            registro.put("id",id)
-            registro.put("nombre",nombre)
-            registro.put("tipo",tipo)
-            registro.put("documento",documento)
-            registro.put("celular",celular)
-            registro.put("correo",correo)
-            registro.put("contrasena",contrasena)
-            registro.put("rol",rol)
-            baseDatos.insert("user",null,registro)
-            tnombre?.setText("")
-            ttipo?.setText("")
-            tdocumento?.setText("")
-            tcelular?.setText("")
-            tcorreo?.setText("")
-            tcontrasena?.setText("")
-            Toast.makeText(this,"Se ha insertado exitosamente",Toast.LENGTH_LONG).show()
-        }else{
-            Toast.makeText(this,"Los campos debe de tener texto",Toast.LENGTH_LONG).show()
         }
-
     }
+
+    fun  agregarUser(room: AppDatabase,user: User){
+        lifecycleScope.launch {
+            room.daoUsuario().agregarUsuario(user)
+            obtenerUsuarios(room)
+            limpierCampos()
+        }
+    }
+
+    fun limpierCampos(){
+        usuario.name
+    }
+
+
 }
