@@ -10,16 +10,18 @@ import com.tiago_mzm.gymapp.data.database.entities.User
 @Dao
 interface UserDAO {
     @Query("SELECT * FROM user")
-    suspend fun obtenerUsuarios(): MutableList<User>
+    fun getAll(): List<User>
 
    // @Query("SELECT * FROM User WHERE code = :code")
     //fun findByCode(code: Int): User
 
     @Insert
-    suspend fun agregarUsuario(usuario:User)
+    fun insertAll(vararg user: User)
 
-    @Query("UPDATE user set password = :password WHERE correo = :usuario")
-    suspend fun actualizarUsuario(usuario: String,password:String)
+   /* @Query("UPDATE user set nombre = :nombre, tipodocumento = :tipo_documento,documento = :documento" +
+            ",celular = :celular,password = :password WHERE correo = :correo")
+    fun actualizarUsuario(nombre: String,  tipo_documento: String,documento: String, correo: String,
+                          celular: String, password: String)*/
 
     //@Delete
     //fun delete(product: User)
