@@ -35,7 +35,7 @@ class registration : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_registration)
         val btnInsertar = findViewById<Button>(R.id.button)
-        binding.button.setOnClickListener {view ->
+        btnInsertar.setOnClickListener {
             onViewCreated()
         }
     }
