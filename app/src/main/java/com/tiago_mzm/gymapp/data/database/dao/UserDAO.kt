@@ -1,16 +1,20 @@
 package com.tiago_mzm.gymapp.data.database.dao
 
 import androidx.room.Dao
-import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
-import androidx.room.Update
 import com.tiago_mzm.gymapp.data.database.entities.User
 
 @Dao
 interface UserDAO {
+    @Insert
+    fun insertarDatos(datos: User?)
+
     @Query("SELECT * FROM user")
-    fun getAll(): List<User>
+    fun obtenerTodosLosDatos(): List<User?>?
+
+    //@Query("SELECT * FROM user")
+    //fun getAll(): List<User>
 
    // @Query("SELECT * FROM User WHERE code = :code")
     //fun findByCode(code: Int): User

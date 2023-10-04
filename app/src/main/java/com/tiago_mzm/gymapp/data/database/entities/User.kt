@@ -4,14 +4,14 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
-@Entity
-data class  User (
-    @PrimaryKey val id: Int,
-    @ColumnInfo var name: String,
-    @ColumnInfo var tipo_doc: String,
-    @ColumnInfo var documento: String,
-    @ColumnInfo var celular: String,
-    @ColumnInfo var correo: String,
-    @ColumnInfo var password: String,
-    @ColumnInfo var rol: String
-)
+@Entity(tableName = "user")
+class  User (
+    @PrimaryKey(autoGenerate = true) val id: Int,
+    @ColumnInfo(name = "name") var name: String,
+    @ColumnInfo(name = "tipo_doc") var tipo_doc: String,
+    @ColumnInfo(name = "documento") var documento: String,
+    @ColumnInfo(name = "correo") var correo: String,
+    @ColumnInfo(name = "password") var password: String,
+    @ColumnInfo(name = "celular") var celular: String,
+    @ColumnInfo(name = "rol") var rol: String
+    )

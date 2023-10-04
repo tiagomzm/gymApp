@@ -1,27 +1,14 @@
 package com.tiago_mzm.gymapp
 
-import android.content.ContentValues
-import android.content.Context
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
-import androidx.lifecycle.lifecycleScope
-import androidx.room.Room
-import com.google.android.material.snackbar.Snackbar
-import com.tiago_mzm.gymapp.data.database.AdaptadorUser
+import androidx.appcompat.app.AppCompatActivity
 import com.tiago_mzm.gymapp.data.database.AppDatabase
+import com.tiago_mzm.gymapp.data.database.dao.UserDAO
 import com.tiago_mzm.gymapp.data.database.entities.User
 import com.tiago_mzm.gymapp.databinding.ActivityRegistrationBinding
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-
-import kotlinx.coroutines.launch
-
 
 
 class registration : AppCompatActivity() {
@@ -46,14 +33,20 @@ class registration : AppCompatActivity() {
     }
 
     fun onViewCreated(){
-        db = AppDatabase.getInstance(this)
-        val user = User(id = 1, name = "Aleja Moreno", tipo_doc = "cc", documento = "14090", celular = "312654891","prueba@prueba.com", password = "123","user")
-        GlobalScope.launch(Dispatchers.IO){
-            db.UserDAO().insertAll(user)
+        val database = AppDatabase.getInstance(this)
+        val user: UserDAO = database.UserDAO()
 
-        }
+        val datos = User(
+            0,
+            "Ejemplo",
+            "CC",
+            "1234567890",
+            "ejemplo@gmail.com",
+            "12345",
+            "1234567890",
+            "ADMIN"
+        )
 
+        user.insertarDatos(datos);
     }
-
-
 }
