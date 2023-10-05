@@ -9,8 +9,9 @@ import com.tiago_mzm.gymapp.data.database.entities.User
 
 @Database(entities = [User::class], version = 1, exportSchema = false)
 abstract class AppDatabase : RoomDatabase() {
-    abstract fun UserDAO(): UserDAO
-   companion object {
+    abstract fun getUserDao() : UserDAO
+
+   /*companion object {
         private const val DATABASE_NAME = "vibras.db"
 
         private lateinit var instance: AppDatabase
@@ -32,6 +33,6 @@ abstract class AppDatabase : RoomDatabase() {
             }
 
         }
-   }
+   }*/
 
 }

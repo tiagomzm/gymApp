@@ -5,9 +5,9 @@ import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "user")
-class  User (
-    @PrimaryKey(autoGenerate = true) val id: Int,
-    @ColumnInfo(name = "name") var name: String,
+data class User (
+    @PrimaryKey(autoGenerate = true) val id:Int = 0,
+    @ColumnInfo(name = "nombre") var nombre: String,
     @ColumnInfo(name = "tipo_doc") var tipo_doc: String,
     @ColumnInfo(name = "documento") var documento: String,
     @ColumnInfo(name = "correo") var correo: String,
