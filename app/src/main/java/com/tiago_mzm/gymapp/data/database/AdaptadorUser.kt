@@ -39,7 +39,7 @@ class AdaptadorUser (
         override fun onBindViewHolder(holder: ViewHolder, position: Int) {
                 val usuario = listaUsuario[position]
 
-                holder.nombre.text = usuario.name
+               // holder.nombre.text = usuario.name
                 holder.documento.text = usuario.documento
                 holder.plan.text = usuario.rol
 

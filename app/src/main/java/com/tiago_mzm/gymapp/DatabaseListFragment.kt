@@ -11,7 +11,7 @@ class DatabaseListFragment :Fragment(){
     private lateinit var db: AppDatabase
     override fun  onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
-        db = AppDatabase.getInstance(context)
+       // db = AppDatabase.getInstance(context)
         return view
     }
 
