@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "504473784627",
+    "project_id": "vibras-37d6d",
+    "storage_bucket": "vibras-37d6d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:504473784627:android:9831b5405237649a2a6e46",
+        "android_client_info": {
+          "package_name": "com.tiago_mzm.gymapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB-6Ud_bVCVugwBH2M2lp77OgYVtLKE4hw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

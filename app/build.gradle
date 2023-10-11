@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
+    id 'com.google.gms.google-services'
 }
 apply plugin: 'kotlin-kapt'
 
@@ -54,7 +55,12 @@ dependencies {
     implementation 'com.google.firebase:firebase-functions-ktx:20.3.1'
     implementation 'com.google.android.datatransport:transport-runtime:3.1.2'
     implementation 'androidx.room:room-ktx:2.5.2'
+    implementation 'com.google.firebase:firebase-messaging-ktx:23.2.1'
     kapt 'androidx.room:room-compiler:2.5.2'
+
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
+    implementation("com.google.firebase:firebase-analytics-ktx")
+
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
