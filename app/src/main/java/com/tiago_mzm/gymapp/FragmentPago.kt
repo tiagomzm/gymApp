@@ -5,6 +5,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TableRow
+import android.widget.TextView
+import com.tiago_mzm.gymapp.integration.ListPlans
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -13,13 +20,22 @@ class FragmentPago : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
-
+    private lateinit var planes : ListPlans
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
             param1 = it.getString(ARG_PARAM1)
             param2 = it.getString(ARG_PARAM2)
         }
+
+        GlobalScope.launch(Dispatchers.IO) {
+            val dataAut = planes.operateAut("prueba","prueba").token
+            val call = planes.serchByName(dataAut)
+            withContext(Dispatchers.Main){
+                call;
+            }
+        }
+
     }
 
     override fun onCreateView(

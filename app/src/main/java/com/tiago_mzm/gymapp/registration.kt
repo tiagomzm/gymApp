@@ -56,7 +56,7 @@ class registration : AppCompatActivity() {
 
     fun onViewCreated(){
 
-        db = Room.databaseBuilder(this,AppDatabase::class.java,"pmovil").build()
+        db = Room.databaseBuilder(this,AppDatabase::class.java,"vibras").build()
         val dao = db.getUserDao()
         val id = UUID.randomUUID().hashCode()
         val rol = "user"
