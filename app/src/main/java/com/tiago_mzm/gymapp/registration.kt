@@ -18,7 +18,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import java.util.UUID
 
-
+//gradle automatiza la construccion de nuestro código
 class registration : AppCompatActivity() {
 
     private var _binding: ActivityRegistrationBinding? = null
@@ -31,9 +31,9 @@ class registration : AppCompatActivity() {
     var tcelular : EditText?=null
     var tcorreo : EditText?=null
     var tclave : EditText?=null
-    override fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {   //metodo callback
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_registration)
+        setContentView(R.layout.activity_registration)  //establece el layout que desea asociar a la activty
         val btnInsertar = findViewById<Button>(R.id.button)
 
         tnombre = findViewById(R.id.editTextText5)
