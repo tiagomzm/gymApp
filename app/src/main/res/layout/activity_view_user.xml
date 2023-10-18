@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#49D4E6"
-    tools:context=".viewUser"
+    tools:context=".view.activities.viewUser"
     tools:layout_editor_absoluteX="1dp"
     tools:layout_editor_absoluteY="34dp">
 
@@ -101,7 +101,7 @@
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
-        android:name="com.tiago_mzm.gymapp.FragmentPago"
+        android:name="com.tiago_mzm.gymapp.view.fragments.FragmentPago"
         android:layout_width="377dp"
         android:layout_height="374dp"
         android:layout_marginStart="16dp"

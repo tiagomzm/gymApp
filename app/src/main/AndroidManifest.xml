@@ -22,16 +22,16 @@
             android:resource="@color/white" />
 
         <activity
-            android:name=".admin"
+            android:name=".view.activities.admin"
             android:exported="false" />
         <activity
-            android:name=".viewUser"
+            android:name=".view.activities.viewUser"
             android:exported="false" />
         <activity
-            android:name=".registration"
+            android:name=".view.activities.registration"
             android:exported="false" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".view.activities.LoginActivity"
             android:exported="true"
             android:label="@string/title_activity_login">
         <intent-filter>
@@ -41,14 +41,14 @@
         </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".view.activities.MainActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.GymApp">
 
         </activity>
         <service
-            android:name=".utils.messaging.MessagingService"
+            android:name=".integration.messaging.MessagingService"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />

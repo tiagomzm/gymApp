@@ -5,13 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:visibility="visible"
-    tools:context=".edit">
+    tools:context=".view.fragments.edit">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/usu"
-        tools:context=".activity_edit"
+        tools:context=".view.activities.activity_edit"
         tools:layout_editor_absoluteX="0dp">
 
         <TextView

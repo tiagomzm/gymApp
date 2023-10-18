@@ -8,7 +8,7 @@
     android:windowSoftInputMode="adjustResize"
     android:backgroundTintMode="multiply"
     android:foregroundTintMode="multiply"
-    tools:context=".admin">
+    tools:context=".view.activities.admin">
     <ImageView
         android:id="@+id/imageView4"
         android:layout_width="140dp"

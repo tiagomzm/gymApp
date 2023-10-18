@@ -3,7 +3,7 @@ package com.tiago_mzm.gymapp.adapter
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.tiago_mzm.gymapp.data.AdminUser
+import com.tiago_mzm.gymapp.model.entities.AdminUser
 import com.tiago_mzm.gymapp.R
 
 class UserAdminAdapter(private var userList:List<AdminUser>,

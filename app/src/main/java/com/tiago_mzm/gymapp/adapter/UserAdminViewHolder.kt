@@ -2,7 +2,7 @@ package com.tiago_mzm.gymapp.adapter
 
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
-import com.tiago_mzm.gymapp.data.AdminUser
+import com.tiago_mzm.gymapp.model.entities.AdminUser
 import com.tiago_mzm.gymapp.databinding.ItemAdminuserBinding
 class UserAdminViewHolder (view:View):RecyclerView.ViewHolder(view) {
 
