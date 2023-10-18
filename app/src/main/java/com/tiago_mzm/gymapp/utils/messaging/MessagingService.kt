@@ -16,11 +16,11 @@ import com.tiago_mzm.gymapp.MainActivity
 import com.tiago_mzm.gymapp.R
 import kotlinx.coroutines.flow.channelFlow
 
-const val codigoCanal = "notificacion_canal"
-const val nombreCanal = "com.tiago_mzm.gymapp.utils.messaging"
+/*const val codigoCanal = "notificacion_canal"
+const val nombreCanal = "com.tiago_mzm.gymapp.utils.messaging"*/
 class MessagingService: FirebaseMessagingService() {
 
-    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+    /*override fun onMessageReceived(remoteMessage: RemoteMessage) {
         if (remoteMessage.notification != null){
             generarNotificacion(remoteMessage.notification!!.title!!,remoteMessage.notification!!.body!!)
         }
@@ -32,7 +32,7 @@ class MessagingService: FirebaseMessagingService() {
         vistaRemota.setTextViewText(R.id.titulo,title)
         vistaRemota.setTextViewText(R.id.mensaje,mensaje)
         vistaRemota.setImageViewResource(R.id.app_logo,R.drawable.logopesas)
-         return vistaRemota
+        return vistaRemota
     }
 
     fun generarNotificacion(title: String, mensaje:String){
@@ -60,6 +60,6 @@ class MessagingService: FirebaseMessagingService() {
         }
 
         administracionNotificacion.notify(0, builder.build())
-    }
+    }*/
 
 }
