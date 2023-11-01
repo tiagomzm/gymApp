@@ -1,13 +1,24 @@
 package com.tiago_mzm.gymapp.view.activities
 
+import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.Task
 import com.google.android.material.textfield.TextInputLayout
+import com.google.firebase.auth.AuthCredential
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.tiago_mzm.gymapp.R
 import com.tiago_mzm.gymapp.databinding.ActivityLoginBinding
 import com.tiago_mzm.gymapp.model.Usuario
@@ -19,11 +30,22 @@ class   LoginActivity : AppCompatActivity() {
     private lateinit var loginViewModel: LoginViewModel
     private lateinit var binding: ActivityLoginBinding
 
+    private lateinit var client: GoogleSignInClient
+    private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+        if (result.resultCode == Activity.RESULT_OK) {
+            val data: Intent? = result.data
+            if (data != null) {
+                handleGoogleSignInResult(data)
+            }
+        }
+    }
+
     val listaUsuarios = ArrayList<Usuario>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
+
 
         listaUsuarios.add(Usuario("admin", "admin123","ADMIN"))
         listaUsuarios.add(Usuario("user", "user123","USUARIO"))
@@ -75,6 +97,22 @@ class   LoginActivity : AppCompatActivity() {
                     .show()
             }
         })
+
+        /*binding.btGoogle?.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val signInIntent = client.signInIntent
+            signInLauncher.launch(signInIntent)}*/
+
+        //Auth con google
+        val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestIdToken("504473784627-7ibo7s0dl7ludk7nt4mcp5ri521aa96f.apps.googleusercontent.com")
+            .requestEmail()
+            .build()
+        val googleSignInClient = GoogleSignIn.getClient(this, options)
+        googleSignInClient.signOut().addOnCompleteListener {
+            //Cierre de sesión completado
+        }
+        client = GoogleSignIn.getClient(this, options)
     
     }
     fun abrirRegistro(view: View){
@@ -86,4 +124,27 @@ class   LoginActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
+    private fun handleGoogleSignInResult(data: Intent) {
+        val task: Task<GoogleSignInAccount> = GoogleSignIn.getSignedInAccountFromIntent(data)
+        try {
+            val account: GoogleSignInAccount = task.getResult(ApiException::class.java)
+            val credential: AuthCredential = GoogleAuthProvider.getCredential(account.idToken, null)
+            FirebaseAuth.getInstance().signInWithCredential(credential)
+                .addOnCompleteListener { task ->
+                    if (task.isSuccessful) {
+                        // La autenticación fue exitosa
+                        val intent = Intent(applicationContext, viewUser::class.java)
+                        intent.putExtra("options", client.apiOptions)
+                        startActivity(intent)
+                        // Realiza acciones adicionales
+                    } else {
+                        // La autenticación fallo
+                        Toast.makeText(applicationContext, task.exception?.message ?: "", Toast.LENGTH_SHORT).show()
+                        // Manejar la excepción
+                    }
+                }
+        } catch (e: ApiException) {
+            e.printStackTrace()
+        }
+    }
 }
