@@ -21,6 +21,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.tiago_mzm.gymapp.R
 import com.tiago_mzm.gymapp.databinding.ActivityLoginBinding
+import com.tiago_mzm.gymapp.databinding.ActivityMainBinding
 import com.tiago_mzm.gymapp.model.Usuario
 import com.tiago_mzm.gymapp.view.LoginViewModel
 
@@ -32,7 +33,7 @@ class   LoginActivity : AppCompatActivity() {
 
     private lateinit var client: GoogleSignInClient
     private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == Activity.RESULT_OK) {
+        if (result.resultCode == RESULT_OK) {
             val data: Intent? = result.data
             if (data != null) {
                 handleGoogleSignInResult(data)
@@ -44,12 +45,19 @@ class   LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        binding = ActivityLoginBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+
+        binding.btGoogle?.setOnClickListener {
+            FirebaseAuth.getInstance().signOut()
+            val signInIntent = client.signInIntent
+            signInLauncher.launch(signInIntent)}
 
 
         listaUsuarios.add(Usuario("admin", "admin123","ADMIN"))
         listaUsuarios.add(Usuario("user", "user123","USUARIO"))
-
+    
         // Obtén referencias a las vistas.
         val editTextUsuario = findViewById<TextInputLayout>(R.id.usuario)
         val editTextContraseña = findViewById<EditText>(R.id.contraseña)
@@ -98,10 +106,7 @@ class   LoginActivity : AppCompatActivity() {
             }
         })
 
-        /*binding.btGoogle?.setOnClickListener {
-            FirebaseAuth.getInstance().signOut()
-            val signInIntent = client.signInIntent
-            signInLauncher.launch(signInIntent)}*/
+
 
         //Auth con google
         val options = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -148,3 +153,4 @@ class   LoginActivity : AppCompatActivity() {
         }
     }
 }
+
