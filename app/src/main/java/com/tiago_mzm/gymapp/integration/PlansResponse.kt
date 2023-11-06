@@ -4,7 +4,8 @@ import com.google.gson.annotations.SerializedName
 
 data class PlansResponse(
     @SerializedName("id") var id : String,
-    @SerializedName("nombre") var nombre:String,
-    @SerializedName("precio") var precio:Long,
-    @SerializedName("periodo") var periodo:String
+    @SerializedName("idPlan") var idPlan : Long,
+    @SerializedName("name") var nombre:String,
+    @SerializedName("price") var precio:Long,
+    @SerializedName("period") var periodo:String
 )
