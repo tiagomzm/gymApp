@@ -9,9 +9,9 @@ import retrofit2.http.POST
 import retrofit2.http.Url
 
 interface AppService {
-    @POST()
-    fun getToken(@Url url:String, @Body loginRequest: LoginRequest): Call<TokenResponse>
+    @POST("authenticate")
+    fun getToken(@Body loginRequest: LoginRequest): Call<TokenResponse>
 
-    @GET()
-    suspend fun getPlans(@Url url:String,@Header("Authorization") token:String): Call<PlansResponse>
+    @GET("api/v1/rest/plans/")
+    fun getPlans(@Header("Authorization") token:String): PlansResponse
 }
