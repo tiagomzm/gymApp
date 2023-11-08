@@ -50,7 +50,7 @@ class admin : AppCompatActivity() {
             var datos = ""
             db.collection("pagos").get()
                 .addOnSuccessListener { resultado -> for (promocion in resultado){
-                    datos += "${promocion.id}: ${promocion.data} + \n"
+                    datos += "${promocion.id}: ${promocion.data} \n"
                 }
                     binding.textView7.text = datos
             }
@@ -118,7 +118,9 @@ class admin : AppCompatActivity() {
 
             val dato = hashMapOf(
                 "correo" to pago.nombre,
-                "fecha" to fechaActual
+                "pago" to pago.pago,
+                "plan" to pago.plan,
+                "fecha" to fechaActual.toString()
             )
             db.collection("pagos")
                 .document("4")
