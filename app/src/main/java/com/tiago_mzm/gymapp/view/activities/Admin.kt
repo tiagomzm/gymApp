@@ -48,7 +48,7 @@ class admin : AppCompatActivity() {
 
         binding.btnConsulta.setOnClickListener {
             var datos = ""
-            db.collection("soportes").get()
+            db.collection("pagos").get()
                 .addOnSuccessListener { resultado -> for (promocion in resultado){
                     datos += "${promocion.id}: ${promocion.data} + \n"
                 }
@@ -65,8 +65,8 @@ class admin : AppCompatActivity() {
 
         binding.btnborrar.setOnClickListener {
             if (binding.TxVsugerencia.text.isNotBlank()) {
-                db.collection("soportes")
-                    .document("3")
+                db.collection("pagos")
+                    .document(binding.TxVsugerencia.text.toString())
                     .delete()
                     .addOnSuccessListener { _ ->
                         Toast.makeText(this, "borrado", Toast.LENGTH_SHORT).show()
@@ -83,10 +83,10 @@ class admin : AppCompatActivity() {
     private fun guardarDatos(db: FirebaseFirestore) {
         if (binding.TxVsugerencia.text.isNotBlank()) {
             val dato = hashMapOf(
-                "soportes" to binding.TxVsugerencia.text.toString()
+                "pagos" to binding.TxVsugerencia.text.toString()
             )
-            db.collection("soportes")
-                .document("3")
+            db.collection("pagos")
+                .document("4")
                 .set(dato)
                 .addOnSuccessListener { _ ->
                     Toast.makeText(this, "exito", Toast.LENGTH_SHORT).show()
@@ -121,7 +121,7 @@ class admin : AppCompatActivity() {
                 "fecha" to fechaActual
             )
             db.collection("pagos")
-                .document("2")
+                .document("4")
                 .set(dato)
                 .addOnSuccessListener { _ ->
                     Toast.makeText(this, "exito", Toast.LENGTH_SHORT).show()
