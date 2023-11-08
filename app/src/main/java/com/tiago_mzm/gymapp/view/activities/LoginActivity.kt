@@ -33,7 +33,8 @@ class   LoginActivity : AppCompatActivity() {
 
     private lateinit var client: GoogleSignInClient
     private val signInLauncher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-        if (result.resultCode == RESULT_OK) {
+        //if (result.resultCode == RESULT_OK) {
+        if (result.resultCode == Activity.RESULT_OK) {
             val data: Intent? = result.data
             if (data != null) {
                 handleGoogleSignInResult(data)
@@ -45,6 +46,7 @@ class   LoginActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
         binding = ActivityLoginBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
@@ -78,7 +80,6 @@ class   LoginActivity : AppCompatActivity() {
                     }else{
                         rol = 2
                     }
-
                     // Las credenciales son correctas.
                     loginExitoso = true
                     break

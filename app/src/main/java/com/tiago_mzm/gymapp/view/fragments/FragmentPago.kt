@@ -26,11 +26,16 @@ class FragmentPago : Fragment() {
             param2 = it.getString(ARG_PARAM2)
         }
 
-        GlobalScope.launch(Dispatchers.IO) {
-            val dataAut = planes.operateAut("prueba","prueba").token
-            val call = planes.serchByName(dataAut)
-            withContext(Dispatchers.Main) {
-                call;
+        GlobalScope.launch {
+            try {
+                val dataAut = planes.operateAut("prueba", "prueba").token
+                val call = planes.getPlans(dataAut)
+                withContext(Dispatchers.Main) {
+                    call
+                }
+            } catch (e: Exception) {
+                // Handle the exception, log it, or display an error message.
+                e.printStackTrace()
             }
         }
 
