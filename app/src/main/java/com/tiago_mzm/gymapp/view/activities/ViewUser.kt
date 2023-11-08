@@ -8,12 +8,18 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import com.tiago_mzm.gymapp.R
+import com.tiago_mzm.gymapp.integration.ListPlans
 import com.tiago_mzm.gymapp.view.fragments.edit
 import com.tiago_mzm.gymapp.view.fragments.FragmentPago
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class viewUser : AppCompatActivity() {
 
+    lateinit var planes: ListPlans
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -24,6 +30,23 @@ class viewUser : AppCompatActivity() {
         textoUsuario.text = usuario
 
         val btnEditar = findViewById<Button>(R.id.actualizarDatos)
+
+        // Initialize the "planes" property here
+        planes = ListPlans()
+
+        GlobalScope.launch {
+            try {
+                val dataAut = planes.operateAut("prueba", "prueba").token
+                val call = planes.getPlans(dataAut)
+                withContext(Dispatchers.Main) {
+                    call
+                }
+            } catch (e: Exception) {
+                // Handle the exception, log it, or display an error message.
+                e.printStackTrace()
+            }
+        }
+
         val btnPago = findViewById<Button>(R.id.button)
 
 
