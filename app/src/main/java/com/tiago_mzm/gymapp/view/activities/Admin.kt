@@ -15,6 +15,7 @@ import com.tiago_mzm.gymapp.view.recyclers.AdminUserListProvider
 import com.tiago_mzm.gymapp.adapter.UserAdminAdapter
 import com.tiago_mzm.gymapp.model.entities.AdminUser
 import com.tiago_mzm.gymapp.databinding.ActivityAdminBinding
+import java.util.Calendar
 
 
 class admin : AppCompatActivity() {
@@ -22,7 +23,7 @@ class admin : AppCompatActivity() {
     private lateinit var binding: ActivityAdminBinding
     private lateinit var adapter: UserAdminAdapter
     private var listaUsuariosTratados: MutableList<AdminUser> = AdminUserListProvider.userList.toMutableList()
-
+    val fechaActual = Calendar.getInstance().time
     val db : FirebaseFirestore = FirebaseFirestore.getInstance()
     val collectionRef = db.collection("soportes")
 
@@ -98,6 +99,7 @@ class admin : AppCompatActivity() {
     }
 
 
+
     fun salirVista(view: View){
         val intent= Intent(this, LoginActivity ::class.java).apply {  }
         startActivity(intent)
@@ -113,6 +115,24 @@ class admin : AppCompatActivity() {
         binding.reciclerviewUsuarios.adapter = adapter
     }
     private fun pagarBoton (pago: AdminUser){
-        Toast.makeText(this, pago.nombre, Toast.LENGTH_SHORT).show()
+
+            val dato = hashMapOf(
+                "correo" to pago.nombre,
+                "fecha" to fechaActual
+            )
+            db.collection("pagos")
+                .document("2")
+                .set(dato)
+                .addOnSuccessListener { _ ->
+                    Toast.makeText(this, "exito", Toast.LENGTH_SHORT).show()
+                }
+
+                .addOnFailureListener { _ ->
+                    Toast.makeText(this, "fallo", Toast.LENGTH_SHORT).show()
+                }
+
+
+        //Toast.makeText(this, pago.nombre, Toast.LENGTH_SHORT).show()
     }
+
 }
