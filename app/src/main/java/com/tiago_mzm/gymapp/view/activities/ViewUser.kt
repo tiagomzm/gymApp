@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import com.tiago_mzm.gymapp.R
 import com.tiago_mzm.gymapp.integration.ListPlans
 import com.tiago_mzm.gymapp.view.fragments.edit
@@ -30,25 +31,32 @@ class viewUser : AppCompatActivity() {
         textoUsuario.text = usuario
 
         val btnEditar = findViewById<Button>(R.id.actualizarDatos)
-
+        val btnPago = findViewById<Button>(R.id.button)
+        val planesTexto = findViewById<TextView>(R.id.textView8)
         // Initialize the "planes" property here
         planes = ListPlans()
+        val lista = "";
 
+        val precio = "";
+        val plan = "";
         GlobalScope.launch {
             try {
                 val dataAut = planes.operateAut("prueba", "prueba").token
                 val call = planes.getPlans(dataAut)
-                withContext(Dispatchers.Main) {
-                    call
+                val response = call
+                val i = response.size
+                var lista = "";
+                for( dato in response){
+                    lista += "nombrePlan: " + dato.nombre
+                    lista += " plan: " + dato.periodo
+                    lista += " valor: " + dato.precio + "\n"
                 }
+                planesTexto.text = lista
             } catch (e: Exception) {
                 // Handle the exception, log it, or display an error message.
                 e.printStackTrace()
             }
         }
-
-        val btnPago = findViewById<Button>(R.id.button)
-
 
         btnEditar.setOnClickListener {
             val nuevo = edit()

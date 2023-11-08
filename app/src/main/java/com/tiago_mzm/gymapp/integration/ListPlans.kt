@@ -15,10 +15,12 @@ class ListPlans {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-    fun getPlans(TOKEN: String): PlansResponse {
+    fun getPlans(TOKEN: String): List<PlansResponse> {
         val apiService = getRetrofit().create(AppService::class.java)
-
-        val plansResponseDeferred = runBlocking{
+        val token = "Bearer $TOKEN"
+        val call = apiService.getPlans(token).execute()
+        return call.body() as List<PlansResponse>
+        /*val plansResponseDeferred = runBlocking{
             async {
                 val call = apiService.getPlans().execute()
                 call.body() ?: throw IllegalStateException("No se encontraron planes")
@@ -27,7 +29,7 @@ class ListPlans {
 
         return runBlocking {
             plansResponseDeferred.await()
-        }
+        }*/
     }
 
      /*fun serchByName(TOKEN: String) {
